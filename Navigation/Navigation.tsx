@@ -1,23 +1,29 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+
+import React from 'react'
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
 //Páginas
-import Home from '../Screens/Home/Home';
+import Home from '../screens/Home';
+import Summoners from '../screens/Summoners'
 
-const Stack = createStackNavigator();
-
-const RootNavigation = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen
-                    name="Home"
-                    component={Home}
-                />    
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'rgb(255, 0, 0)',
+  },
 };
 
-export default RootNavigation;
+const { Navigator, Screen } = createStackNavigator()
+
+export default function Navigation (): JSX.Element {
+  return (
+    <NavigationContainer >
+      <Navigator theme={MyTheme}>
+        <Screen name='Home' component={Home} options={{headerShown: false}}/>
+        <Screen name='Summoners' component={Summoners} options={{headerShown: false}}/>
+      </Navigator>
+    </NavigationContainer>
+  )
+}

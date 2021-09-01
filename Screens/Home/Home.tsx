@@ -6,8 +6,8 @@ export default function Home() {
         <View>
             <TextInput
                 placeholder="Digite o nome do Invocador"
-
             />
+            
         </View>
     )
 }

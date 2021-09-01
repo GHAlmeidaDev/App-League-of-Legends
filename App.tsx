@@ -2,20 +2,20 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import RootNavigation from './Navigation/Navigation';
+import Navigation from './navigation/Navigation';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <RootNavigation/>
-    </View>
+    <>
+      <Navigation/>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'blue',
     alignItems: 'center',
     justifyContent: 'center',
   },
